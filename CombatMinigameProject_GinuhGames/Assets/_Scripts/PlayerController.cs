@@ -76,34 +76,62 @@ public class PlayerController : MonoBehaviour
     public void TryHighQuickAttack()
     {
         if (CanAttack)
+        {
             _animator.SetTrigger(ATTACK_HIGH_QUICK);
+
+            _animator.SetInteger("ThorController", 0);
+        }
     }
     public void TryHighSlowAttack()
     {
         if (CanAttack)
+        {
             _animator.SetTrigger(ATTACK_HIGH_SLOW);
+
+            _animator.SetInteger("ThorController", 0);
+        }
     }
     public void TryLowQuickAttack()
     {
         if (CanAttack)
+        {
             _animator.SetTrigger(ATTACK_LOW_QUICK);
+
+            _animator.SetInteger("ThorController", 0);
+
+        }
     }
     public void TryLowSlowAttack()
     {
         if (CanAttack)
+        {
             _animator.SetTrigger(ATTACK_LOW_SLOW);
+
+            _animator.SetInteger("ThorController", 0);
+
+        }
     }
 
     internal void TryHighBlock()
     {
         if (CanBlock)
+        {
             _animator.SetTrigger(BLOCK_HIGH);
+
+            _animator.SetInteger("ThorController", 0);
+
+        }
     }
 
     internal void TryLowBlock()
     {
         if (CanBlock)
+        {
             _animator.SetTrigger(BLOCK_LOW);
+
+            _animator.SetInteger("ThorController", 0);
+
+        }
     }
 
 
@@ -129,7 +157,9 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger(DIE);
 
-      //  GetComponent<AudioSource>().Play();
+        _animator.SetInteger("ThorController", 0);
+
+        //  GetComponent<AudioSource>().Play();
         StartCoroutine(DieLater());
 
 
@@ -149,6 +179,9 @@ public class PlayerController : MonoBehaviour
     public void Win()
     {
         _animator.SetTrigger(WIN);
+
+        _animator.SetInteger("ThorController", 0);
+
     }
 }
 
