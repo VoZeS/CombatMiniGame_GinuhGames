@@ -47,12 +47,14 @@ public class MovementController : MonoBehaviour
 
         if (CanMove(speed))
         {       
-            _animator.SetFloat(SPEED, _id == 1 ? -speed : speed);
+            //_animator.SetFloat(SPEED, _id == 1 ? -speed : speed);
 
             if (speed > 0)
                 _animator.SetInteger("ThorController", 1);
             else if(speed < 0)
                 _animator.SetInteger("ThorController", 2);
+            else if(speed == 0)
+                _animator.SetInteger("ThorController", 0);
 
         }
 

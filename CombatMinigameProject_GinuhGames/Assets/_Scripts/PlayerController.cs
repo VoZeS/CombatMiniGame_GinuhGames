@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     GameObject ImpactPrefab;
  
     // Start is called before the first frame update
-    private bool _isAttacking;
-    private bool _isBlocking;
+    public bool _isAttacking;
+    public bool _isBlocking;
 
     private UpDown UpOrDown;
 
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
             _animator.SetInteger("ThorController", 0);
         }
+
     }
     public void TryHighSlowAttack()
     {
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
             _animator.SetInteger("ThorController", 0);
         }
+
     }
     public void TryLowQuickAttack()
     {
@@ -100,6 +102,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetInteger("ThorController", 0);
 
         }
+
     }
     public void TryLowSlowAttack()
     {
@@ -110,6 +113,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetInteger("ThorController", 0);
 
         }
+
     }
 
     internal void TryHighBlock()
@@ -121,6 +125,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetInteger("ThorController", 0);
 
         }
+
     }
 
     internal void TryLowBlock()
@@ -132,6 +137,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetInteger("ThorController", 0);
 
         }
+
     }
 
 

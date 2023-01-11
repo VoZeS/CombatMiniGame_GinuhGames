@@ -6,26 +6,36 @@ public class Thor_SlowLowAttack : MonoBehaviour
 {
     public ParticleSystem dust;
     public Animator thor_animator;
+    public PlayerController playerController;
+    private BoxCollider attackColl;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        attackColl = thor_animator.gameObject.GetComponent<BoxCollider>();
+        attackColl.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "floor" && thor_animator.GetInteger("ThorController") == 0)
+        if (other.tag == "floor" && !playerController._isBlocking)
         {
             Debug.Log("SlowLowAttack!");
             ActivateDust();
+            attackColl.enabled = true;
         }     
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        attackColl.enabled = false;
+
     }
     void ActivateDust()
     {
