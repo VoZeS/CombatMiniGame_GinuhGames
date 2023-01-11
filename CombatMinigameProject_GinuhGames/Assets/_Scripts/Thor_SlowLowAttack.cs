@@ -12,7 +12,7 @@ public class Thor_SlowLowAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackColl = thor_animator.gameObject.GetComponent<BoxCollider>();
+        attackColl = thor_animator.gameObject.GetComponentInChildren<BoxCollider>();
         attackColl.enabled = false;
 
     }
@@ -24,7 +24,7 @@ public class Thor_SlowLowAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "floor" && !playerController._isBlocking)
+        if (other.tag == "floor" && playerController._isAttacking)
         {
             Debug.Log("SlowLowAttack!");
             ActivateDust();

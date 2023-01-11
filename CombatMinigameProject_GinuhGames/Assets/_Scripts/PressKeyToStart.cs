@@ -7,6 +7,11 @@ public class PressKeyToStart : MonoBehaviour
 {
     public GameObject text;
     public Animator cameraAnim;
+    public Animator panelAnim;
+
+    public PlayerController player1Controller;
+    public PlayerController player2Controller;
+
     private bool pressKey;
 
     // Start is called before the first frame update
@@ -26,5 +31,8 @@ public class PressKeyToStart : MonoBehaviour
 
         if (pressKey)
             text.SetActive(false);
+
+        if(player1Controller.Dead || player2Controller.Dead)
+            panelAnim.SetTrigger("EndGame");
     }
 }
