@@ -53,11 +53,15 @@ public class GameLogic : MonoBehaviour
             player2Controller._dead = !player2Controller._dead;
         }
 
-        //if(InputAction.CallbackContext)
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-
         PlayerPrefs.Save();
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            PlayerStart.nPLayers = 0;
+            MovementController._playercount = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
 
     }
 }
