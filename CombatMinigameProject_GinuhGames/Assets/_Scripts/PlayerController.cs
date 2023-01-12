@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     private bool CanBlock => !_isAttacking && !_isBlocking;
     public bool Dead => _dead;
 
-    public GameLogic gameLogic;
-
 
     #region AnimationParamNames
     const string SPEED = "Speed";
@@ -79,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(ATTACK_HIGH_QUICK);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
         }
 
     }
@@ -89,7 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(ATTACK_HIGH_SLOW);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
         }
 
     }
@@ -99,7 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(ATTACK_LOW_QUICK);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
 
         }
 
@@ -110,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(ATTACK_LOW_SLOW);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
 
         }
 
@@ -122,7 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(BLOCK_HIGH);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
 
         }
 
@@ -134,7 +132,7 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetTrigger(BLOCK_LOW);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
 
         }
 
@@ -168,7 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger(DIE_HIGH);
 
-        _animator.SetInteger("ThorController", 0);
+        _animator.SetInteger("Controller", 0);
 
         //  GetComponent<AudioSource>().Play();
         StartCoroutine(DieLater());
@@ -180,7 +178,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger(DIE_LOW);
 
-        _animator.SetInteger("ThorController", 0);
+        _animator.SetInteger("Controller", 0);
 
         //  GetComponent<AudioSource>().Play();
         StartCoroutine(DieLater());
@@ -203,7 +201,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger(WIN);
 
-        _animator.SetInteger("ThorController", 0);
+        _animator.SetInteger("Controller", 0);
 
     }
 }

@@ -50,11 +50,11 @@ public class MovementController : MonoBehaviour
             _animator.SetFloat(SPEED, _id == 1 ? -speed : speed);
 
             if (speed > 0)
-                _animator.SetInteger("ThorController", _id == 1 ? 2 : 1);
+                _animator.SetInteger("Controller", _id == 1 ? 2 : 1);
             else if(speed < 0)
-                _animator.SetInteger("ThorController", _id == 1 ? 1 : 2);
+                _animator.SetInteger("Controller", _id == 1 ? 1 : 2);
             else if (speed == 0)
-                _animator.SetInteger("ThorController", 0);
+                _animator.SetInteger("Controller", 0);
 
         }
 
@@ -62,7 +62,7 @@ public class MovementController : MonoBehaviour
         {
             _animator.SetFloat(SPEED, 0);
 
-            _animator.SetInteger("ThorController", 0);
+            _animator.SetInteger("Controller", 0);
         }
 
 
