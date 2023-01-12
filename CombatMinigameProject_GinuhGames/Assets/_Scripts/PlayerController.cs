@@ -17,10 +17,9 @@ public class PlayerController : MonoBehaviour
 
     private bool CanAttack => !_isAttacking && !_isBlocking;
     private bool CanBlock => !_isAttacking && !_isBlocking;
-
     public bool Dead => _dead;
 
-
+    public GameLogic gameLogic;
 
 
     #region AnimationParamNames
@@ -34,7 +33,8 @@ public class PlayerController : MonoBehaviour
     const string BLOCK_LOW = "BlockLow";
 
 
-    const string DIE = "Die";
+    const string DIE_HIGH = "DieHigh";
+    const string DIE_LOW = "DieLow";
     const string WIN = "Win";
 
     
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     static int _playercount;
     int _id;
-    private bool _dead;
+    public bool _dead;
 
     private void Awake()
     {
@@ -148,7 +148,12 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isBlocking || hitBy.UpOrDown!=this.UpOrDown || hitBy.Dead)
             {
-                Die();
+                if(hitBy.UpOrDown == UpDown.Up)
+                    DieHigh();
+
+                if (hitBy.UpOrDown == UpDown.Down)
+                    DieLow();
+
                 hitBy.Win();
                 Instantiate(ImpactPrefab, hit.position, Quaternion.identity);
             }
@@ -159,9 +164,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void Die()
+    private void DieHigh()
     {
-        _animator.SetTrigger(DIE);
+        _animator.SetTrigger(DIE_HIGH);
+
+        _animator.SetInteger("ThorController", 0);
+
+        //  GetComponent<AudioSource>().Play();
+        StartCoroutine(DieLater());
+
+
+    }
+
+    private void DieLow()
+    {
+        _animator.SetTrigger(DIE_LOW);
 
         _animator.SetInteger("ThorController", 0);
 
