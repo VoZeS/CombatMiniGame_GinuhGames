@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool CanBlock => !_isAttacking && !_isBlocking;
     public bool Dead => _dead;
 
+    public AudioSource hitAudio;
 
     #region AnimationParamNames
     const string SPEED = "Speed";
@@ -146,6 +147,8 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isBlocking || hitBy.UpOrDown!=this.UpOrDown || hitBy.Dead)
             {
+                hitAudio.Play();
+
                 if(hitBy.UpOrDown == UpDown.Up)
                     DieHigh();
 

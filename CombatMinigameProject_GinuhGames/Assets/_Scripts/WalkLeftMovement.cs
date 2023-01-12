@@ -13,7 +13,7 @@ public class WalkLeftMovement : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.transform.position += new Vector3(-0.008f, 0.0f, 0.0f);
+        animator.gameObject.transform.position += new Vector3(-0.006f, 0.0f, 0.0f);
 
     }
 

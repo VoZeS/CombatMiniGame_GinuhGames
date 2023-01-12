@@ -46,5 +46,8 @@ public class GameLogic : MonoBehaviour
             MovementController._playercount = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+            Application.Quit();
     }
 }
